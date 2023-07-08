@@ -126,9 +126,6 @@ $company = DB::table('company')->get();
         </td>
       </tr>
      @endforeach
-        
-
-
   <tr>
     <td height="15" align="right" style="padding:5px;font-size: 14px;" >
       <strong>TOTAL </strong>

@@ -1142,12 +1142,6 @@ $id = DB::table('journal')->where('VoucherMstID',$id)->delete();
 <a href="'.URL('/InvoicePDF/'.$row->InvoiceMasterID).'"><i class="font-size-18 me-1 mdi mdi-file-pdf-outline align-middle me-1 text-secondary"></i></a> 
 
 <a href="'.URL('/InvoicePDF1/'.$row->InvoiceMasterID).'"><i class="font-size-18 me-1 mdi mdi-file-pdf-outline align-middle me-1 text-secondary"></i></a> 
-                        
-
-                          
-
-  
-
                       
 
                        </div>
@@ -2451,8 +2445,7 @@ public  function InvoicePDF($id)
     }
 
 public  function InvoicePDF1($id)
-    {
-
+{
 
 ///////////////////////USER RIGHT & CONTROL ///////////////////////////////////////////    
           $allow= check_role(session::get('UserID'),'Invoice','PDF');
@@ -2482,7 +2475,7 @@ public  function InvoicePDF1($id)
    $pdf->setpaper('A4', 'portiate');
       return $pdf->stream();
 
-    }
+}
 
 public  function Ajax_VHNO(request $request)
     {

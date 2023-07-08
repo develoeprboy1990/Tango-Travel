@@ -41,6 +41,7 @@ Route::post('/InvoiceSave',[Accounts::class,'InvoiceSave']);
 route::get('/InvoiceEdit/{id}',[Accounts::class,'InvoiceEdit']);
 route::get('/InvoicePDF/{id}',[Accounts::class,'InvoicePDF']);
 route::get('/InvoicePDF1/{id}',[Accounts::class,'InvoicePDF1']);
+
 route::get('/InvoiceView/{id}',[Accounts::class,'InvoiceView']);
 
 Route::post('/InvoiceUpdate',[Accounts::class,'InvoiceUpdate']);
