@@ -1,0 +1,24 @@
+10-07-20223
+
+ALTER TABLE `visa` ADD `Phone` VARCHAR(255) NULL DEFAULT NULL AFTER `Nationality`, ADD `Email` VARCHAR(255) NULL DEFAULT NULL AFTER `Phone`, ADD `Address` VARCHAR(255) NULL DEFAULT NULL AFTER `Email`;
+
+
+CREATE or replace VIEW `v_visa` AS 
+select 
+`extbooks_tango_travel`.`visa`.`VisaID` AS `VisaID`,
+date_format(`extbooks_tango_travel`.`visa`.`Date`,'%d/%m/%Y') AS `Date`,
+date_format(`extbooks_tango_travel`.`visa`.`DueDate`,'%d/%m/%Y') AS `DueDate`,
+`extbooks_tango_travel`.`visa`.`PassangerName` AS `PassangerName`,
+`extbooks_tango_travel`.`visa`.`VisaNo` AS `VisaNo`,
+`extbooks_tango_travel`.`visa`.`SupplierID` AS `SupplierID`,
+`extbooks_tango_travel`.`visa`.`PartyID` AS `PartyID`,
+`extbooks_tango_travel`.`visa`.`Nationality` AS `Nationality`,
+`extbooks_tango_travel`.`visa`.`Phone` AS `Phone`,
+`extbooks_tango_travel`.`visa`.`Email` AS `Email`,
+`extbooks_tango_travel`.`visa`.`Address` AS `Address`,
+`extbooks_tango_travel`.`visa`.`eDate` AS `eDate`,
+`extbooks_tango_travel`.`party`.`PartyName` AS `PartyName`,
+`extbooks_tango_travel`.`party`.`Address` AS `PartyAddress`,
+`extbooks_tango_travel`.`party`.`Phone` AS `PartyPhone`,
+`extbooks_tango_travel`.`party`.`Email` AS `PartyEmail`,
+timestampdiff(DAY,sysdate(),`extbooks_tango_travel`.`visa`.`DueDate`) AS `VisaExpiry` from (`extbooks_tango_travel`.`visa` join `extbooks_tango_travel`.`party` on((`extbooks_tango_travel`.`visa`.`PartyID` = `extbooks_tango_travel`.`party`.`PartyID`)))

@@ -59,6 +59,7 @@ Route::get('/VoucherEdit/{id}',[Accounts::class,'VoucherEdit']);
 Route::post('/VoucherUpdate',[Accounts::class,'VoucherUpdate']);
 Route::get('/VoucherDelete/{id}',[Accounts::class,'VoucherDelete']);
 Route::get('/VoucherView/{id}',[Accounts::class,'VoucherView']);
+Route::get('/VoucherPDF/{id}',[Accounts::class,'VoucherPDF']);
 
 Route::get('/JV/',[Accounts::class,'JV']);
 

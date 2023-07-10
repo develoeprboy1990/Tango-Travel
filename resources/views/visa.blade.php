@@ -70,6 +70,7 @@
                 <th>Days Left</th>
                 <th>Phone</th>
                 <th>Email</th>
+                <th>Address</th>
                 <th>Action </th>
             </tr>
         </thead>
@@ -98,6 +99,7 @@ $(document).ready(function() {
             { "data": "VisaExpiry" },
             { "data": "Phone" },
             { "data": "Email" },
+            { "data": "Address" },
             { "data": "action" },
         ]
      });

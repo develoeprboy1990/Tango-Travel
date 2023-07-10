@@ -501,17 +501,12 @@ public  function VisaCreate()
               'SupplierID' => $request->input('SupplierID'), 
               'PartyID' => $request->input('PartyID'), 
               'Nationality' => $request->input('Nationality'), 
-              
-              
-
-      );
- 
- 
+              'Phone' => $request->input('Phone'), 
+              'Email' => $request->input('Email'), 
+              'Address' => $request->input('Address'), 
+      ); 
       
        $id= DB::table('visa')->insertGetId($data);
-
- 
-
  
     return redirect('Visa')->with('error','Record Saved')->with('class','success');
     
@@ -565,16 +560,13 @@ public  function VisaUpdate(request $request)
               'PassangerName' => $request->input('PassangerName'), 
               'SupplierID' => $request->input('SupplierID'), 
               'PartyID' => $request->input('PartyID'), 
-              'Nationality' => $request->input('Nationality'), 
-              
-              
-
+              'Nationality' => $request->input('Nationality'),
+              'Phone' => $request->input('Phone'), 
+              'Email' => $request->input('Email'), 
+              'Address' => $request->input('Address'), 
       );
- 
-
-       // dd($invoice_mst);
-
-      // $id= DB::table('')->insertGetId($data);
+    // dd($invoice_mst);
+    // $id= DB::table('')->insertGetId($data);
       
   $id= DB::table('visa')->where('VisaID',$request->input('VisaID'))->update($data);
 
@@ -695,6 +687,8 @@ public function ajax_voucher(Request $request)
 <a href="'.URL('/VoucherEdit/'.$row->VoucherMstID).'"><i class="font-size-18 mdi mdi-pencil align-middle me-1 text-secondary"></i></a> 
 
 <a href="javascript:void(0)" onclick="delete_voucher('.$row->VoucherMstID.')" ><i class="font-size-18 bx bx-trash align-middle me-1 text-secondary"></i></a>
+
+<a href="'.URL('/VoucherPDF/'.$row->VoucherMstID).'"><i class="font-size-18 me-1 mdi mdi-file-pdf-outline align-middle me-1 text-secondary"></i></a> 
 
 
  
@@ -1056,6 +1050,48 @@ $voucher_master = DB::table('v_voucher_master')
  
         return view ('voucher_view',compact('pagetitle','voucher_master')); 
  }
+
+ public  function VoucherPDF($id)
+{
+
+///////////////////////USER RIGHT & CONTROL ///////////////////////////////////////////    
+          $allow= check_role(session::get('UserID'),'Voucher','View');  
+          if($allow[0]->Allow=='N')
+          {
+            return redirect()->back()->with('error', 'You access is limited')->with('class','danger');
+          }
+          ////////////////////////////END SCRIPT ////////////////////////////////////////////////
+
+
+
+    session::put('menu','VoucherReport');     
+       $pagetitle='Voucher Report';
+
+  // dd($request->all());
+       // dd($request->VoucherTypeID);
+      
+
+        
+// dd(  $voucher_type);
+
+$voucher_master = DB::table('v_voucher_master')
+            // ->whereBetween('Date',array($request->StartDate,$request->EndDate))
+             ->where('VoucherMstID',$id)
+
+            ->get();
+
+ 
+
+ 
+//        return view ('voucher_view',compact('pagetitle','voucher_master')); 
+
+
+      $pdf = PDF::loadView ('voucher_pdf',compact('voucher_master'));
+   $pdf->setpaper('A4', 'portiate');
+      return $pdf->stream();
+
+}
+
 
 
   public  function VoucherDelete($id)

@@ -138,6 +138,30 @@
 </div>
 </div>
 
+<div class="mb-3 row">
+<label for="example-email-input" class="col-md-2 col-form-label">Phone</label>
+<div class="col-md-4">
+<input class="form-control" type="text" name="Phone" id="example-email-input" value="{{$visa[0]->Phone}}" required="">
+</div>
+</div>
+
+
+<div class="mb-3 row">
+<label for="example-email-input" class="col-md-2 col-form-label">Email</label>
+<div class="col-md-4">
+<input class="form-control" type="text"   name="Email" id="example-email-input" value="{{$visa[0]->Email}}" required="">
+</div>
+</div>
+
+
+<div class="mb-3 row">
+<label for="example-email-input" class="col-md-2 col-form-label">Address</label>
+<div class="col-md-4">
+<input class="form-control" type="text"   name="Address" id="example-email-input" value="{{$visa[0]->Address}}" required="">
+</div>
+</div>
+
+
 
  
 

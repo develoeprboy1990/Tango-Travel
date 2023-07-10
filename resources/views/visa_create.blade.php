@@ -138,7 +138,26 @@
 </div>
 </div>
 
+<div class="mb-3 row">
+<label for="example-email-input" class="col-md-2 col-form-label">Phone</label>
+<div class="col-md-4">
+    <input class="form-control" type="text"   name="Phone" value="{{old('Phone')}}" >
+</div>
+</div>
 
+<div class="mb-3 row">
+<label for="example-email-input" class="col-md-2 col-form-label">Email</label>
+<div class="col-md-4">
+    <input class="form-control" type="text" name="Email" value="{{old('Email')}}" >
+</div>
+</div>
+
+<div class="mb-3 row">
+<label for="example-email-input" class="col-md-2 col-form-label">Address</label>
+<div class="col-md-4">
+    <input class="form-control" type="text" name="Address" value="{{old('Address')}}" >
+</div>
+</div>
  
 
  
