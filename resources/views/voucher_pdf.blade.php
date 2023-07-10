@@ -65,7 +65,7 @@ $company = DB::table('company')->get();
 <table width="80%" border="0" cellspacing="0" cellpadding="0" align="center">
   <tr>
     <td>
-      <table width="100%" cellspacing="1" cellpadding="0" style="background-color: #ffffff; filter: alpha(opacity=40); opacity: 0.95;border:2px black solid;border-radius: 25px;">
+      <table width="80%" cellspacing="1" cellpadding="0" style="background-color: #ffffff; filter: alpha(opacity=40); opacity: 0.95;border:2px black solid;border-radius: 25px;">
         <tr>
           <td valign="top" style="padding: 20px;font-size: 16px;"><b>
             {{@$voucher_master[0]->Narration}} <br><br>
@@ -74,7 +74,7 @@ $company = DB::table('company')->get();
     </table>
     </td>
     <td valign="top">
-      <table width="80%" align="center" cellpadding="0" cellspacing="3" style="background-color: #ffffff; filter: alpha(opacity=40); opacity: 0.95;border:2px black solid;border-radius: 25px;">
+      <table width="100%" align="center" cellpadding="0" cellspacing="3" style="background-color: #ffffff; filter: alpha(opacity=40); opacity: 0.95;border:2px black solid;border-radius: 25px;">
         <tr>
           <td valign="top" style="padding: 15px;">
             DATE: {{dateformatman(@$voucher_master[0]->Date)}} <br><br>
